@@ -1,0 +1,82 @@
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}" [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="defaultModalLabel">{{editorTitle}}</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label for="email_address_2">Title</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+            <div class="form-line">
+            <input type="text" class="form-control" placeholder="Enter a title" [ngModel]="todo?.title" (ngModelChange)="todo.title = $event"  name="title">
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Description</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+            <div class="form-line">
+            <textarea rows="4" class="form-control no-resize" placeholder="Enter a Description" [ngModel]="todo?.description" (ngModelChange)="todo.description = $event"  name="description"></textarea>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Type</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+            <div class="form-line">
+              <select class="form-control show-tick" [(ngModel)]="todo.type" name="type">
+                <option *ngFor="let type of bootstrapData?.types  | mapToIterable" [value]="type.key">{{type.val}}</option>
+              </select>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>ETA</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+            <div class="form-line">
+              <my-date-picker name="eta" [options]="myDatePickerOptions"
+                    [(ngModel)]="todo.eta" required></my-date-picker>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+            <label>Status</label>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+            <div class="form-group">
+            <div class="form-line">
+              <select class="form-control show-tick" [(ngModel)]="todo.status"  name="status">
+                <option *ngFor="let status of bootstrapData?.statuses  | mapToIterable" [value]="status.key">{{status.val}}</option>
+              </select>
+            </div>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link waves-effect" (click)="save()">SAVE</button>
+        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" (click)="hide()">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>

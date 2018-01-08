@@ -1,0 +1,22 @@
+<div class="card">
+	<div class="header bg-{{bootstrapDataThemes.statusColor[item.status]}}">
+		<p>{{item.title | captionFilter : true : 30}}</p>
+	</div>
+	<div class="body">
+		<button type="button" class="btn bg-indigo btn-circle waves-effect waves-circle waves-float" title="Edit" >
+			<i class="material-icons">border_color</i>
+		</button>
+		<button type="button" class="btn bg-teal btn-circle waves-effect waves-circle waves-float" title="Start Progress" [disabled]="item.status =='inProgress'">
+			<i class="material-icons">motorcycle</i>
+		</button>
+		<button type="button" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float" title="Mark As Done" [disabled]="item.status =='done'">
+			<i class="material-icons">thumb_up</i>
+		</button>
+		<button type="button" class="btn bg-orange btn-circle waves-effect waves-circle waves-float" title="Mark As Pending" [disabled]="item.status =='pending'">
+			<i class="material-icons">alarm</i>
+		</button>
+		<button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float" title="Delete">
+			<i class="material-icons">delete</i>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>DASHBOARD</h2>
+            </div>
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12" *ngFor="let kpi of kpis" >
+                    <kpi-card [kpi]="kpi"></kpi-card>
+                </div>
+            </div>
+            <!-- #END# Widgets -->
+            <div class="row clearfix">
+                <!-- Alerts -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <alerts-panel></alerts-panel>
+                </div>
+                <!-- #END# Alerts -->
+            </div>
+        </div>
+</section>

@@ -1,0 +1,16 @@
+.alertsCard {
+	height : 400px;
+	overflow : auto;
+}
+
+.status-container {
+	border-style: dashed;
+    border-color: #E9E9E9;
+	border-width:  1px;
+	padding: 20px; 
+	overflow: auto;
+}
+
+.status-wrapper {
+	margin: 20px;
+}

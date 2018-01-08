@@ -1,0 +1,21 @@
+<div class="card">
+	<div class="header"><h2>Overdue TO DOs : {{todos?.length}}</h2></div>
+	<div class="body alertsCard">
+		<div class="table-responsive">
+			<table class="table table-hover dashboard-task-infos">
+				<thead>
+					<tr>
+					<th>Task</th><th>Status</th><th>Due date</th>
+					</tr>
+				</thead>
+				<tbody >
+					<tr *ngFor="let todo of todos">
+						<td>{{todo.title | captionFilter : true : 30}}</td>
+						<td><span class="label bg-{{bootstrapDataThemes?.statusColor[todo?.status]}}">{{bootstrapData?.statuses[todo?.status]}}</span></td>
+						<td>{{todo?.eta | date: 'MM/dd/yyyy'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
